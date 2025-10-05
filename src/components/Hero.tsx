@@ -37,7 +37,7 @@ const Hero = () => {
           </p>
 
           {/* Video placeholder - will be replaced with actual video */}
-          <div id="video" className="w-full max-w-5xl mt-32 relative">
+          <div id="video" className="w-full max-w-5xl mt-48 relative">
             <div className="relative rounded-2xl overflow-hidden border border-primary/20" style={{ boxShadow: '0 0 60px rgba(0, 255, 255, 0.3)' }}>
               {/* Video will go here */}
               <div className="aspect-video bg-card/50 backdrop-blur-sm flex items-center justify-center">

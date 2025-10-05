@@ -53,15 +53,20 @@ const Features = () => {
             return (
               <div
                 key={index}
-                className="bg-background p-8 border border-border/40 hover:border-primary/30 transition-colors"
+                className="relative bg-background p-8 border border-border/40 group overflow-hidden transition-all duration-300"
               >
-                <Icon className="w-8 h-8 text-foreground mb-6" strokeWidth={1.5} />
-                <h3 className="text-lg font-semibold text-foreground mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div className="relative z-10">
+                  <Icon className="w-8 h-8 text-foreground mb-6" strokeWidth={1.5} />
+                  <h3 className="text-lg font-semibold text-foreground mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
             );
           })}
