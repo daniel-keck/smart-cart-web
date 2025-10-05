@@ -40,7 +40,7 @@ const Contact = () => {
   return (
     <section className="py-20 bg-background relative overflow-hidden" id="kontakt">
       <div className="container mx-auto px-8 md:px-12 lg:px-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
           {/* Left side - Contact info */}
           <div className="space-y-6 relative">
             {/* Background accent */}
@@ -82,7 +82,7 @@ const Contact = () => {
 
           {/* Right side - Contact form */}
           <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 border border-primary/20 bg-grid-pattern">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                   Vollständiger Name
@@ -140,7 +140,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Ihre Nachricht hier eingeben"
-                  rows={6}
+                  rows={4}
                   className="bg-background/50 border-border text-foreground placeholder:text-muted-foreground resize-none"
                   required
                 />
