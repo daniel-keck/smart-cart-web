@@ -70,18 +70,19 @@ All colors MUST be HSL.
 
   .cursor-glow {
     position: fixed;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
-    background: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.5);
     pointer-events: none;
     z-index: 9999;
     mix-blend-mode: screen;
-    transition: transform 0.15s ease-out;
+    transition: transform 0.2s ease-out;
+    filter: blur(8px);
     box-shadow: 
-      0 0 20px hsl(var(--primary)),
-      0 0 40px hsl(var(--primary) / 0.6),
-      0 0 60px hsl(var(--primary) / 0.3);
+      0 0 30px hsl(var(--primary) / 0.4),
+      0 0 60px hsl(var(--primary) / 0.3),
+      0 0 90px hsl(var(--primary) / 0.2);
   }
 
   .cursor-glow-outer {
@@ -89,9 +90,9 @@ All colors MUST be HSL.
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 1px solid hsl(var(--primary) / 0.3);
+    border: 1px solid hsl(var(--primary) / 0.2);
     pointer-events: none;
     z-index: 9999;
-    transition: transform 0.2s ease-out;
+    transition: transform 0.25s ease-out;
   }
 }
