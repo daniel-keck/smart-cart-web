@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/smartcart_logo_new.png";
+import logo from "@/assets/smart_cart_logo.png";
 import { Menu } from "lucide-react";
 import { useState } from "react";
 
