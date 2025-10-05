@@ -1,7 +1,18 @@
 import { Button } from "@/components/ui/button";
-import { Award } from "lucide-react";
+import { Award, Play } from "lucide-react";
+import { useState, useRef } from "react";
 
 const Hero = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlayVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = false;
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-16 pb-32">
       {/* Grid background */}
@@ -40,9 +51,9 @@ const Hero = () => {
           <div id="video" className="w-full max-w-5xl mt-64 relative">
             <div className="relative rounded-2xl overflow-hidden border border-primary/20" style={{ boxShadow: '0 0 60px rgba(0, 255, 255, 0.3)' }}>
               <video 
+                ref={videoRef}
                 className="w-full aspect-video"
                 controls
-                autoPlay
                 muted
                 loop
                 playsInline
@@ -50,6 +61,18 @@ const Hero = () => {
                 <source src="/smartcart-demo.mp4" type="video/mp4" />
                 Ihr Browser unterstützt das Video-Tag nicht.
               </video>
+              
+              {/* Play button overlay */}
+              {!isPlaying && (
+                <div 
+                  onClick={handlePlayVideo}
+                  className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center cursor-pointer group transition-all hover:bg-black/50"
+                >
+                  <div className="w-24 h-24 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Play className="w-12 h-12 text-black fill-black ml-1" />
+                  </div>
+                </div>
+              )}
               
               {/* Glow overlay on video container */}
               <div className="absolute -inset-1 bg-gradient-to-t from-primary/20 to-transparent opacity-50 pointer-events-none rounded-2xl"></div>
