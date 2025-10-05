@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
@@ -47,19 +46,20 @@ const Contact = () => {
             {/* Background accent */}
             <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
             
-            {/* Icon with glow effect */}
-            <div className="relative w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl flex items-center justify-center border border-primary/20">
-              <Mail className="w-10 h-10 text-primary" />
-              <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-xl"></div>
+            {/* Badge similar to FAQ style */}
+            <div className="inline-flex">
+              <div className="px-8 py-4 bg-primary/10 rounded-full border border-primary/30">
+                <span className="text-2xl font-semibold text-primary">Kontakt</span>
+              </div>
             </div>
 
             {/* Heading */}
             <div className="relative">
               <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-                Kontaktieren<br />Sie uns
+                Haben Sie<br />Fragen?
               </h2>
               <p className="text-lg text-muted-foreground max-w-md leading-relaxed">
-                Wir sind immer auf der Suche nach Möglichkeiten, unsere Produkte und Dienstleistungen zu verbessern. Kontaktieren Sie uns und lassen Sie uns wissen, wie wir Ihnen helfen können.
+                Ob geschäftliche Anfragen, Kooperationsvorschläge oder technische Fragen – wir freuen uns auf Ihre Nachricht und melden uns zeitnah bei Ihnen.
               </p>
             </div>
 
