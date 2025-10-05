@@ -42,12 +42,12 @@ const Contact = () => {
       <div className="container mx-auto px-8 md:px-12 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
           {/* Left side - Contact info */}
-          <div className="space-y-6 relative text-center">
+          <div className="space-y-6 relative">
             {/* Background accent */}
-            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+            <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
             
             {/* Badge matching FAQ style */}
-            <div className="flex justify-center">
+            <div>
               <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
                 Kontakt
               </span>
@@ -58,29 +58,23 @@ const Contact = () => {
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
                 Haben Sie Fragen?
               </h2>
-              <p className="text-muted-foreground text-lg max-w-md mx-auto">
+              <p className="text-muted-foreground text-lg max-w-md">
                 Ob geschäftliche Anfragen, Kooperationsvorschläge oder technische Fragen – wir freuen uns auf Ihre Nachricht und melden uns zeitnah bei Ihnen.
               </p>
             </div>
 
-            {/* Contact details centered */}
-            <div className="space-y-4 pt-4 relative flex flex-col items-center">
+            {/* Contact details left-aligned */}
+            <div className="space-y-4 pt-4 relative">
               <div className="flex items-center gap-3 group">
                 <div className="w-2 h-2 rounded-full bg-primary"></div>
-                <a href="mailto:contact@smartcart.de" className="text-muted-foreground hover:text-primary transition-colors">
-                  contact@smartcart.de
+                <a href="mailto:info@danielkeck.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  info@danielkeck.com
                 </a>
               </div>
               <div className="flex items-center gap-3 group">
                 <div className="w-2 h-2 rounded-full bg-primary"></div>
                 <a href="tel:+4970001234567" className="text-muted-foreground hover:text-primary transition-colors">
                   +49 (700) 123 4567
-                </a>
-              </div>
-              <div className="flex items-center gap-3 group">
-                <div className="w-2 h-2 rounded-full bg-primary"></div>
-                <a href="mailto:support@smartcart.de" className="text-muted-foreground hover:text-primary transition-colors">
-                  support@smartcart.de
                 </a>
               </div>
             </div>
