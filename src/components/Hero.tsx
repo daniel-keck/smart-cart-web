@@ -13,6 +13,16 @@ const Hero = () => {
       setIsPlaying(true);
     }
   };
+
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  };
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-16 pb-32">
       {/* Grid background */}
@@ -52,10 +62,11 @@ const Hero = () => {
             <div className="relative rounded-2xl overflow-hidden border border-primary/20" style={{ boxShadow: '0 0 60px rgba(0, 255, 255, 0.3)' }}>
               <video 
                 ref={videoRef}
-                className="w-full aspect-video"
+                className="w-full aspect-video cursor-pointer"
                 muted
                 loop
                 playsInline
+                onClick={handleVideoClick}
               >
                 <source src="/smartcart-demo.mp4" type="video/mp4" />
                 Ihr Browser unterstützt das Video-Tag nicht.
