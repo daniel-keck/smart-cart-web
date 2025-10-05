@@ -1,14 +1,14 @@
 import hdmLogo from "@/assets/hdm-stuttgart.png";
 import dieterSchwarzLogo from "@/assets/dieter-schwarz-stiftung.png";
 import carlZeissLogo from "@/assets/carl-zeiss-stiftung.png";
-import bundeswettbewerbLogo from "@/assets/bundeswettbewerb-ki.png";
+import newPartnerLogo from "@/assets/new-partner-logo.png";
 
 const References = () => {
   const logos = [
     { src: hdmLogo, alt: "HdM Stuttgart" },
     { src: dieterSchwarzLogo, alt: "Dieter Schwarz Stiftung" },
     { src: carlZeissLogo, alt: "Carl Zeiss Stiftung" },
-    { src: bundeswettbewerbLogo, alt: "Bundeswettbewerb KI" }
+    { src: newPartnerLogo, alt: "Partner Logo" }
   ];
 
   return (
@@ -31,9 +31,7 @@ const References = () => {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className={`w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${
-                    logo.alt === "Bundeswettbewerb KI" ? "h-64" : "h-16"
-                  }`}
+                  className="w-auto h-16 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                 />
               </div>
             ))}
