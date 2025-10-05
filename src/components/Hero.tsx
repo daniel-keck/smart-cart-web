@@ -24,11 +24,11 @@ const Hero = () => {
 
           {/* Heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground">
-            Scanne nie,
+            Scanne nie,benutz KI
             <br />
-            <span className="text-primary" style={{ textShadow: '0 0 40px rgba(0, 255, 255, 0.5)' }}>
+            /* <span className="text-primary" style={{ textShadow: '0 0 40px rgba(0, 255, 255, 0.5)' }}>
               benutz KI
-            </span>
+            </span>*/
           </h1>
 
           {/* Subheading */}
