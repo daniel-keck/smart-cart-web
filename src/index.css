@@ -70,29 +70,35 @@ All colors MUST be HSL.
 
   .cursor-glow {
     position: fixed;
-    width: 15px;
-    height: 15px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: hsl(var(--primary) / 0.5);
+    background: hsl(var(--primary));
     pointer-events: none;
     z-index: 9999;
-    mix-blend-mode: screen;
-    transition: transform 0.2s ease-out;
-    filter: blur(8px);
-    box-shadow: 
-      0 0 30px hsl(var(--primary) / 0.4),
-      0 0 60px hsl(var(--primary) / 0.3),
-      0 0 90px hsl(var(--primary) / 0.2);
+    transition: all 0.15s ease-out;
   }
 
   .cursor-glow-outer {
     position: fixed;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    border: 1px solid hsl(var(--primary) / 0.2);
+    background: radial-gradient(circle, hsl(var(--primary) / 0.15) 0%, transparent 70%);
     pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.25s ease-out;
+    z-index: 9998;
+    transition: all 0.2s ease-out;
+    filter: blur(4px);
+  }
+  
+  .cursor-trail {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid hsl(var(--primary) / 0.15);
+    pointer-events: none;
+    z-index: 9997;
+    transition: all 0.3s ease-out;
   }
 }
