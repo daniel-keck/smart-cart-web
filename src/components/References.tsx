@@ -15,7 +15,7 @@ const References = () => {
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center text-primary mb-4 animate-glow">
-          Mit freundlicher Unterstützung
+          Gefördert von
         </h2>
         <p className="text-center text-muted-foreground mb-12">
           Institutionen, die an unsere Idee glauben.
