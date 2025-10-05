@@ -77,21 +77,10 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex justify-center items-center">
             <p className="text-muted-foreground text-sm">
               © {currentYear} SmartCart. Alle Rechte vorbehalten.
             </p>
-            <div className="flex gap-6">
-              <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-                Datenschutz
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-                Impressum
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-                AGB
-              </a>
-            </div>
           </div>
         </div>
       </div>
