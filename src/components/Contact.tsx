@@ -38,8 +38,8 @@ const Contact = () => {
   return (
     <section className="py-20 bg-background relative overflow-hidden" id="kontakt">
       <div className="container mx-auto px-8 md:px-12 lg:px-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left side - Contact info and map */}
+        <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
+          {/* Left side - Contact info */}
           <div className="space-y-8">
             {/* Icon */}
             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center">
@@ -69,22 +69,6 @@ const Contact = () => {
               <a href="mailto:support@smartcart.de" className="hover:text-primary transition-colors">
                 support@smartcart.de
               </a>
-            </div>
-
-            {/* Map */}
-            <div className="relative w-full h-[400px] rounded-xl border border-primary/20 shadow-[0_0_30px_rgba(0,255,255,0.15)] overflow-hidden bg-card/30">
-              <img 
-                src={worldMap} 
-                alt="Weltkarte" 
-                className="w-full h-full object-cover opacity-60"
-              />
-              {/* Pin for Germany */}
-              <div className="absolute top-[35%] left-[52%] transform -translate-x-1/2 -translate-y-1/2">
-                <MapPin className="w-8 h-8 text-primary animate-pulse" fill="currentColor" />
-                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-card px-3 py-1 rounded-md border border-primary/30 whitespace-nowrap text-sm">
-                  Deutschland
-                </div>
-              </div>
             </div>
           </div>
 
@@ -161,6 +145,22 @@ const Contact = () => {
                 Absenden
               </Button>
             </form>
+          </div>
+        </div>
+
+        {/* Map - Full width below */}
+        <div className="relative w-full mt-12">
+          <img 
+            src={worldMap} 
+            alt="Weltkarte" 
+            className="w-full h-auto"
+          />
+          {/* Pin for Germany */}
+          <div className="absolute top-[35%] left-[52%] transform -translate-x-1/2 -translate-y-1/2">
+            <MapPin className="w-8 h-8 text-primary animate-pulse" fill="currentColor" />
+            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-card px-3 py-1 rounded-md border border-primary/30 whitespace-nowrap text-sm">
+              Deutschland
+            </div>
           </div>
         </div>
       </div>
