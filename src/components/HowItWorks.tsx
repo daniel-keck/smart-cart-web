@@ -1,6 +1,6 @@
 import { Camera, Cpu, ShoppingBag, CreditCard } from "lucide-react";
 import { useState } from "react";
-import smartcartScene from "@/assets/smartcart-3d-scene.png";
+import smartcartScene from "@/assets/smartcart-scene-new.png";
 
 const HowItWorks = () => {
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
@@ -28,10 +28,10 @@ const HowItWorks = () => {
   ];
 
   const hotspots = [
-    { x: "20%", y: "30%", step: 0 }, // Kamera Position (oben links)
-    { x: "50%", y: "25%", step: 1 }, // KI Analysis (Mitte oben)
-    { x: "35%", y: "60%", step: 2 }, // Shopping Bag (Mitte)
-    { x: "75%", y: "55%", step: 3 }, // Checkout (rechts)
+    { x: "50%", y: "25%", step: 0 }, // Kamera Position (zentral oben)
+    { x: "75%", y: "40%", step: 1 }, // KI Analysis (rechts beim Tisch)
+    { x: "75%", y: "70%", step: 2 }, // Shopping Bag (rechts unten)
+    { x: "25%", y: "70%", step: 3 }, // Checkout (links unten)
   ];
 
   return (
