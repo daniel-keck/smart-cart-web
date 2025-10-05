@@ -4,6 +4,7 @@ import Features from "@/components/Features";
 import References from "@/components/References";
 import WhySmartCart from "@/components/WhySmartCart";
 import HowItWorks from "@/components/HowItWorks";
+import FAQ from "@/components/FAQ";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 
@@ -21,6 +22,9 @@ const Index = () => {
       </div>
       <div id="funktioniert">
         <HowItWorks />
+      </div>
+      <div id="faq">
+        <FAQ />
       </div>
       <div id="ueber">
         <About />
