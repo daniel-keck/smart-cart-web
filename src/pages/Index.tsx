@@ -17,9 +17,9 @@ const Index = () => {
       <div id="referenzen">
         <References />
       </div>
-      <div id="warum">
+      {/* <div id="warum">
         <WhySmartCart />
-      </div>
+      </div> */}
       <div id="funktioniert">
         <HowItWorks />
       </div>
