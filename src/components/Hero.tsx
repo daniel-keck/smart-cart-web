@@ -15,7 +15,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center text-center space-y-8 animate-slide-up max-w-5xl mx-auto">
           {/* Award Badge */}
-          <div className="flex items-center gap-2 bg-card/50 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-3">
+          <div className="flex items-center gap-2 bg-card/50 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-3 mt-12">
             <Award className="w-5 h-5 text-primary" />
             <span className="text-sm font-medium text-primary">
               Finalist Bundeswettbewerb KI 2025
