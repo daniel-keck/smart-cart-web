@@ -20,9 +20,9 @@ const Index = () => {
       <div id="faq">
         <FAQ />
       </div>
-      <div id="ueber">
+      {/* <div id="ueber">
         <About />
-      </div>
+      </div> */}
       <div id="kontakt">
         <Contact />
       </div>

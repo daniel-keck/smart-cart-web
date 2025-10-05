@@ -63,12 +63,12 @@ const Header = () => {
           >
             FAQ
           </button>
-          <button 
+          {/* <button 
             onClick={() => scrollToSection("ueber")}
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             Über uns
-          </button>
+          </button> */}
         </div>
 
         {/* Desktop Navigation - Right aligned button */}
@@ -125,12 +125,12 @@ const Header = () => {
             >
               FAQ
             </button>
-            <button 
+            {/* <button 
               onClick={() => scrollToSection("ueber")}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-2"
             >
               Über uns
-            </button>
+            </button> */}
             <Button 
               onClick={() => scrollToSection("kontakt")}
               variant="outline"
