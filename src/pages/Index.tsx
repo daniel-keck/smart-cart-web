@@ -6,10 +6,12 @@ import FAQ from "@/components/FAQ";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <CustomCursor />
       <Header />
       <Hero />
       <div id="features">
