@@ -3,6 +3,16 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name darf nicht leer sein").max(100, "Name muss kürzer als 100 Zeichen sein"),
+  email: z.string().trim().email("Ungültige E-Mail-Adresse").max(255, "E-Mail muss kürzer als 255 Zeichen sein"),
+  company: z.string().max(100, "Firmenname muss kürzer als 100 Zeichen sein").optional(),
+  message: z.string().trim().min(1, "Nachricht darf nicht leer sein").max(1000, "Nachricht muss kürzer als 1000 Zeichen sein")
+});
+
+const WHATSAPP_NUMBER = "491639208619";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -20,21 +30,45 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.message) {
+    // Validate form data
+    try {
+      const validatedData = contactSchema.parse(formData);
+      
+      // Create WhatsApp message
+      const whatsappMessage = `*Neue Kontaktanfrage*\n\n` +
+        `*Name:* ${validatedData.name}\n` +
+        `*E-Mail:* ${validatedData.email}\n` +
+        `${validatedData.company ? `*Unternehmen:* ${validatedData.company}\n` : ''}` +
+        `\n*Nachricht:*\n${validatedData.message}`;
+      
+      // Encode message for URL
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+      
+      // Open WhatsApp
+      window.open(whatsappUrl, '_blank');
+      
       toast({
-        title: "Fehler",
-        description: "Bitte füllen Sie alle Pflichtfelder aus.",
-        variant: "destructive"
+        title: "Weiterleitung zu WhatsApp",
+        description: "Sie werden zu WhatsApp weitergeleitet, um Ihre Nachricht zu senden.",
       });
-      return;
+
+      setFormData({ name: "", email: "", company: "", message: "" });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        toast({
+          title: "Fehler",
+          description: error.errors[0].message,
+          variant: "destructive"
+        });
+      } else {
+        toast({
+          title: "Fehler",
+          description: "Ein unerwarteter Fehler ist aufgetreten.",
+          variant: "destructive"
+        });
+      }
     }
-
-    toast({
-      title: "Nachricht gesendet!",
-      description: "Wir melden uns so schnell wie möglich bei Ihnen.",
-    });
-
-    setFormData({ name: "", email: "", company: "", message: "" });
   };
 
   return (
