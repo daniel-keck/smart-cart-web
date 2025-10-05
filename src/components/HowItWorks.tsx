@@ -1,6 +1,10 @@
 import { Camera, Cpu, ShoppingBag, CreditCard } from "lucide-react";
 import { useState } from "react";
 import smartcartScene from "@/assets/smartcart-scene-new.png";
+import hdmLogo from "@/assets/hdm-stuttgart.png";
+import dieterSchwarzLogo from "@/assets/dieter-schwarz-stiftung.png";
+import carlZeissLogo from "@/assets/carl-zeiss-stiftung.png";
+import newPartnerLogo from "@/assets/new-partner-logo.png";
 
 const HowItWorks = () => {
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
@@ -143,7 +147,45 @@ const HowItWorks = () => {
             ))}
           </div>
         </div>
+
+        {/* Logo Slider */}
+        <div className="relative overflow-hidden mt-20">
+          <div className="flex animate-[scroll_25s_linear_infinite] hover:[animation-play-state:paused]">
+            {[
+              { src: hdmLogo, alt: "HdM Stuttgart" },
+              { src: dieterSchwarzLogo, alt: "Dieter Schwarz Stiftung" },
+              { src: carlZeissLogo, alt: "Carl Zeiss Stiftung" },
+              { src: newPartnerLogo, alt: "Partner Logo" },
+              { src: hdmLogo, alt: "HdM Stuttgart" },
+              { src: dieterSchwarzLogo, alt: "Dieter Schwarz Stiftung" },
+              { src: carlZeissLogo, alt: "Carl Zeiss Stiftung" },
+              { src: newPartnerLogo, alt: "Partner Logo" }
+            ].map((logo, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 mx-12 flex items-center justify-center"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="w-auto h-16 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+
+      <style>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
     </section>
   );
 };
