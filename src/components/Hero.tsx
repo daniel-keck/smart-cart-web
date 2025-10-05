@@ -53,7 +53,6 @@ const Hero = () => {
               <video 
                 ref={videoRef}
                 className="w-full aspect-video"
-                controls
                 muted
                 loop
                 playsInline
