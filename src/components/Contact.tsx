@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin } from "lucide-react";
+import { Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
-import worldMap from "@/assets/world-map.png";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -145,22 +144,6 @@ const Contact = () => {
                 Absenden
               </Button>
             </form>
-          </div>
-        </div>
-
-        {/* Map - Full width below */}
-        <div className="relative w-full mt-12">
-          <img 
-            src={worldMap} 
-            alt="Weltkarte" 
-            className="w-full h-auto"
-          />
-          {/* Pin for Germany */}
-          <div className="absolute top-[35%] left-[52%] transform -translate-x-1/2 -translate-y-1/2">
-            <MapPin className="w-8 h-8 text-primary animate-pulse" fill="currentColor" />
-            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-card px-3 py-1 rounded-md border border-primary/30 whitespace-nowrap text-sm">
-              Deutschland
-            </div>
           </div>
         </div>
       </div>
