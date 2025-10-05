@@ -14,6 +14,10 @@ const Contact = () => {
     message: ""
   });
 
+  const isFormValid = formData.name.trim() !== "" && 
+                      formData.email.trim() !== "" && 
+                      formData.message.trim() !== "";
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -39,40 +43,51 @@ const Contact = () => {
       <div className="container mx-auto px-8 md:px-12 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
           {/* Left side - Contact info */}
-          <div className="space-y-8">
-            {/* Icon */}
-            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center">
-              <Mail className="w-8 h-8 text-primary" />
+          <div className="space-y-8 relative">
+            {/* Background accent */}
+            <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+            
+            {/* Icon with glow effect */}
+            <div className="relative w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl flex items-center justify-center border border-primary/20">
+              <Mail className="w-10 h-10 text-primary" />
+              <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-xl"></div>
             </div>
 
             {/* Heading */}
-            <div>
-              <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-                Kontaktieren Sie uns
+            <div className="relative">
+              <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+                Kontaktieren<br />Sie uns
               </h2>
-              <p className="text-lg text-muted-foreground max-w-md">
+              <p className="text-lg text-muted-foreground max-w-md leading-relaxed">
                 Wir sind immer auf der Suche nach Möglichkeiten, unsere Produkte und Dienstleistungen zu verbessern. Kontaktieren Sie uns und lassen Sie uns wissen, wie wir Ihnen helfen können.
               </p>
             </div>
 
-            {/* Contact details */}
-            <div className="flex flex-wrap gap-6 text-muted-foreground">
-              <a href="mailto:contact@smartcart.de" className="hover:text-primary transition-colors">
-                contact@smartcart.de
-              </a>
-              <span>•</span>
-              <a href="tel:+4970001234567" className="hover:text-primary transition-colors">
-                +49 (700) 123 4567
-              </a>
-              <span>•</span>
-              <a href="mailto:support@smartcart.de" className="hover:text-primary transition-colors">
-                support@smartcart.de
-              </a>
+            {/* Contact details with better layout */}
+            <div className="space-y-4 pt-4 relative">
+              <div className="flex items-center gap-3 group">
+                <div className="w-2 h-2 rounded-full bg-primary"></div>
+                <a href="mailto:contact@smartcart.de" className="text-muted-foreground hover:text-primary transition-colors">
+                  contact@smartcart.de
+                </a>
+              </div>
+              <div className="flex items-center gap-3 group">
+                <div className="w-2 h-2 rounded-full bg-primary"></div>
+                <a href="tel:+4970001234567" className="text-muted-foreground hover:text-primary transition-colors">
+                  +49 (700) 123 4567
+                </a>
+              </div>
+              <div className="flex items-center gap-3 group">
+                <div className="w-2 h-2 rounded-full bg-primary"></div>
+                <a href="mailto:support@smartcart.de" className="text-muted-foreground hover:text-primary transition-colors">
+                  support@smartcart.de
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Right side - Contact form */}
-          <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 border border-primary/20">
+          <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 border border-primary/20 bg-grid-pattern">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -139,7 +154,12 @@ const Contact = () => {
 
               <Button
                 type="submit"
-                className="w-full bg-primary/10 text-foreground hover:bg-primary/20 border border-primary/30"
+                className={`w-full transition-colors ${
+                  isFormValid 
+                    ? "bg-primary text-white hover:bg-primary border border-primary" 
+                    : "bg-primary/10 text-muted-foreground border border-primary/30 cursor-not-allowed"
+                }`}
+                disabled={!isFormValid}
               >
                 Absenden
               </Button>
