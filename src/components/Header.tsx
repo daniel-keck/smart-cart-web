@@ -25,6 +25,34 @@ const Header = () => {
           onClick={() => scrollToSection("hero")}
         />
 
+        {/* Centered Quick Links */}
+        <div className="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
+          <button 
+            onClick={() => scrollToSection("referenzen")}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Referenzen
+          </button>
+          <button 
+            onClick={() => scrollToSection("warum")}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Warum SmartCart
+          </button>
+          <button 
+            onClick={() => scrollToSection("funktioniert")}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Wie es funktioniert
+          </button>
+          <button 
+            onClick={() => scrollToSection("ueber")}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Über uns
+          </button>
+        </div>
+
         {/* Desktop Navigation - Right aligned buttons */}
         <div className="hidden md:flex items-center gap-4">
           <Button 
