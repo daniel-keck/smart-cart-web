@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import worldMap from "@/assets/world-map-white.svg";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -77,6 +78,15 @@ const Contact = () => {
                   +49 (700) 123 4567
                 </a>
               </div>
+            </div>
+
+            {/* World Map */}
+            <div className="mt-12 pt-8 relative">
+              <img 
+                src={worldMap} 
+                alt="World Map" 
+                className="w-full max-w-2xl opacity-60"
+              />
             </div>
           </div>
 
