@@ -3,7 +3,7 @@ import { Award } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-16">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-16 pb-32">
       {/* Grid background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
       
@@ -50,9 +50,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      
-      {/* Smooth gradient transition to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent via-primary/5 to-background pointer-events-none"></div>
     </section>
   );
 };
