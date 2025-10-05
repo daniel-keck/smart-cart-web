@@ -53,7 +53,7 @@ const HowItWorks = () => {
               src={smartcartScene} 
               alt="SmartCart 3D Scene" 
               className="w-full h-auto"
-              style={{ filter: 'sepia(100%) saturate(300%) brightness(70%) hue-rotate(180deg)' }}
+              style={{ filter: 'brightness(0.95) saturate(1.1) hue-rotate(160deg) contrast(1.05)' }}
             />
             
             {/* Hotspots */}
