@@ -81,7 +81,7 @@ const Contact = () => {
           </div>
 
           {/* Right side - Contact form */}
-          <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 border border-primary/20 transition-all duration-500 ease-in-out hover:bg-gradient-to-br hover:from-primary/5 hover:to-primary/3">
+          <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 border border-primary/20">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
