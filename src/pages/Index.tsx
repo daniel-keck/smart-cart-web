@@ -5,6 +5,7 @@ import HowItWorks from "@/components/HowItWorks";
 import FAQ from "@/components/FAQ";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
+import LocationCard from "@/components/LocationCard";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 
@@ -23,6 +24,7 @@ const Index = () => {
       <div id="faq">
         <FAQ />
       </div>
+      <LocationCard />
       {/* <div id="ueber">
         <About />
       </div> */}
