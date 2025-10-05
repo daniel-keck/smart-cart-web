@@ -36,13 +36,20 @@ const Hero = () => {
             Dein Warenkorb – automatisch erkannt, ganz ohne Scannen
           </p>
 
-          {/* Video placeholder - will be replaced with actual video */}
+          {/* SmartCart Demo Video */}
           <div id="video" className="w-full max-w-5xl mt-64 relative">
             <div className="relative rounded-2xl overflow-hidden border border-primary/20" style={{ boxShadow: '0 0 60px rgba(0, 255, 255, 0.3)' }}>
-              {/* Video will go here */}
-              <div className="aspect-video bg-card/50 backdrop-blur-sm flex items-center justify-center">
-                <p className="text-muted-foreground">Video wird hier eingefügt</p>
-              </div>
+              <video 
+                className="w-full aspect-video"
+                controls
+                autoPlay
+                muted
+                loop
+                playsInline
+              >
+                <source src="/smartcart-demo.mp4" type="video/mp4" />
+                Ihr Browser unterstützt das Video-Tag nicht.
+              </video>
               
               {/* Glow overlay on video container */}
               <div className="absolute -inset-1 bg-gradient-to-t from-primary/20 to-transparent opacity-50 pointer-events-none rounded-2xl"></div>
