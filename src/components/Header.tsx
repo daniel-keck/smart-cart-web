@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <img 
@@ -25,35 +25,19 @@ const Header = () => {
           onClick={() => scrollToSection("hero")}
         />
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          <button
-            onClick={() => scrollToSection("referenzen")}
-            className="text-foreground hover:text-primary transition-colors"
+        {/* Desktop Navigation - Right aligned buttons */}
+        <div className="hidden md:flex items-center gap-4">
+          <Button 
+            onClick={() => scrollToSection("video")}
+            variant="ghost"
+            className="text-foreground hover:text-primary"
           >
-            Referenzen
-          </button>
-          <button
-            onClick={() => scrollToSection("warum")}
-            className="text-foreground hover:text-primary transition-colors"
-          >
-            Warum SmartCart
-          </button>
-          <button
-            onClick={() => scrollToSection("funktioniert")}
-            className="text-foreground hover:text-primary transition-colors"
-          >
-            So funktioniert's
-          </button>
-          <button
-            onClick={() => scrollToSection("ueber")}
-            className="text-foreground hover:text-primary transition-colors"
-          >
-            Über uns
-          </button>
+            Demo
+          </Button>
           <Button 
             onClick={() => scrollToSection("kontakt")}
-            className="bg-primary text-primary-foreground hover:bg-primary/90"
+            variant="outline"
+            className="border-border hover:bg-accent"
           >
             Kontakt
           </Button>
@@ -70,35 +54,19 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-card border-b border-border">
-          <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
-            <button
-              onClick={() => scrollToSection("referenzen")}
-              className="text-foreground hover:text-primary transition-colors text-left"
+        <div className="md:hidden bg-card/95 backdrop-blur-md border-b border-border/50">
+          <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
+            <Button 
+              onClick={() => scrollToSection("video")}
+              variant="ghost"
+              className="text-foreground hover:text-primary w-full justify-start"
             >
-              Referenzen
-            </button>
-            <button
-              onClick={() => scrollToSection("warum")}
-              className="text-foreground hover:text-primary transition-colors text-left"
-            >
-              Warum SmartCart
-            </button>
-            <button
-              onClick={() => scrollToSection("funktioniert")}
-              className="text-foreground hover:text-primary transition-colors text-left"
-            >
-              So funktioniert's
-            </button>
-            <button
-              onClick={() => scrollToSection("ueber")}
-              className="text-foreground hover:text-primary transition-colors text-left"
-            >
-              Über uns
-            </button>
+              Demo
+            </Button>
             <Button 
               onClick={() => scrollToSection("kontakt")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 w-full"
+              variant="outline"
+              className="border-border hover:bg-accent w-full"
             >
               Kontakt
             </Button>
