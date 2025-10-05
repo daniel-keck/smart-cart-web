@@ -1,46 +1,46 @@
-import { CloudUpload, Network, Smartphone, Lock, Calendar, Share2, Scan, Search } from "lucide-react";
+import { Zap, ScanLine, ShoppingCart, Lock, Clock, Smartphone, TrendingUp, Users } from "lucide-react";
 
 const Features = () => {
   const features = [
     {
-      icon: CloudUpload,
-      title: "Built for speed",
-      description: "Instantly sync your notes across devices"
+      icon: Zap,
+      title: "KI-gestützte Erkennung",
+      description: "Automatische Produkterkennung durch fortschrittliche künstliche Intelligenz"
     },
     {
-      icon: Network,
-      title: "Networked notes",
-      description: "Form a graph of ideas with backlinked notes"
+      icon: ScanLine,
+      title: "Kein Scannen nötig",
+      description: "Einfach Produkte in den Warenkorb legen – fertig"
     },
     {
-      icon: Smartphone,
-      title: "iOS app",
-      description: "Capture ideas on the go, online or offline"
+      icon: Clock,
+      title: "Zeit sparen",
+      description: "Bis zu 60% schnellerer Einkaufsprozess an der Kasse"
     },
     {
       icon: Lock,
-      title: "End-to-end encryption",
-      description: "Only you can access your notes"
+      title: "Datenschutz garantiert",
+      description: "DSGVO-konform und höchste Sicherheitsstandards"
     },
     {
-      icon: Calendar,
-      title: "Calendar integration",
-      description: "Keep track of meetings and agendas"
+      icon: ShoppingCart,
+      title: "Nahtlose Integration",
+      description: "Einfache Einbindung in bestehende Kassensysteme"
     },
     {
-      icon: Share2,
-      title: "Publishing",
-      description: "Share anything you write with one click"
+      icon: Smartphone,
+      title: "Mobile-first Design",
+      description: "Optimiert für alle Endgeräte und Bildschirmgrößen"
     },
     {
-      icon: Scan,
-      title: "Instant capture",
-      description: "Save snippets from your browser and Kindle"
+      icon: TrendingUp,
+      title: "Skalierbar",
+      description: "Wächst mit deinem Business – von klein bis Enterprise"
     },
     {
-      icon: Search,
-      title: "Frictionless search",
-      description: "Easily recall and index past notes and ideas"
+      icon: Users,
+      title: "Bessere UX",
+      description: "Kundenzufriedenheit durch reibungsloses Einkaufserlebnis"
     }
   ];
 
