@@ -7,6 +7,7 @@ import HowItWorks from "@/components/HowItWorks";
 import FAQ from "@/components/FAQ";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -34,6 +35,7 @@ const Index = () => {
       <div id="kontakt">
         <Contact />
       </div>
+      <Footer />
     </div>
   );
 };
