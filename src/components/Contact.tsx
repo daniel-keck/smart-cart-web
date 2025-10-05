@@ -44,7 +44,7 @@ const Contact = () => {
           {/* Left side - Contact info */}
           <div className="space-y-6 relative">
             {/* Background accent */}
-            <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+            <div className="absolute -top-20 -left-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
             
             {/* Badge matching FAQ style */}
             <div>
@@ -81,7 +81,7 @@ const Contact = () => {
           </div>
 
           {/* Right side - Contact form */}
-          <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 border border-primary/20 transition-all duration-500 ease-in-out hover:bg-gradient-to-br hover:from-primary/10 hover:to-primary/5">
+          <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 border border-primary/20 transition-all duration-500 ease-in-out hover:bg-gradient-to-br hover:from-primary/5 hover:to-primary/3">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
