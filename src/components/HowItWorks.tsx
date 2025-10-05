@@ -1,7 +1,7 @@
 import { Camera, Cpu, ShoppingBag, CreditCard } from "lucide-react";
 import { useState } from "react";
 import smartcartScene from "@/assets/smartcart-scene-new.png";
-import bundeswettbewerbLogo from "@/assets/bundeswettbewerb-ki.png";
+import kiLogoWhite from "@/assets/ki-logo-white.png";
 import smartcartLogoCyan from "@/assets/smartcart-logo-cyan.png";
 
 const HowItWorks = () => {
@@ -148,11 +148,19 @@ const HowItWorks = () => {
 
         {/* Logo Slider */}
         <div className="relative overflow-hidden mt-20">
-          <div className="flex animate-[scroll_25s_linear_infinite] hover:[animation-play-state:paused]">
+          <div className="flex animate-[scroll_40s_linear_infinite]">
             {[
-              { src: bundeswettbewerbLogo, alt: "Bundeswettbewerb KI" },
+              { src: kiLogoWhite, alt: "KI Logo" },
               { src: smartcartLogoCyan, alt: "SmartCart" },
-              { src: bundeswettbewerbLogo, alt: "Bundeswettbewerb KI" },
+              { src: kiLogoWhite, alt: "KI Logo" },
+              { src: smartcartLogoCyan, alt: "SmartCart" },
+              { src: kiLogoWhite, alt: "KI Logo" },
+              { src: smartcartLogoCyan, alt: "SmartCart" },
+              { src: kiLogoWhite, alt: "KI Logo" },
+              { src: smartcartLogoCyan, alt: "SmartCart" },
+              { src: kiLogoWhite, alt: "KI Logo" },
+              { src: smartcartLogoCyan, alt: "SmartCart" },
+              { src: kiLogoWhite, alt: "KI Logo" },
               { src: smartcartLogoCyan, alt: "SmartCart" }
             ].map((logo, index) => (
               <div
