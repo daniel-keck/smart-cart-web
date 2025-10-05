@@ -35,7 +35,15 @@ const FAQ = () => {
 
   return (
     <section className="py-20 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-pattern opacity-50"></div>
+      {/* Schlichteres Grid Pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
+      
+      {/* Weicher Gradient Übergang oben */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent z-[1]"></div>
+      
+      {/* Weicher Gradient Übergang unten mit sehr geringer Opacity */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/50 to-transparent z-[1]"></div>
+      
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
