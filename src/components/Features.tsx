@@ -1,4 +1,4 @@
-import { Zap, ScanLine, ShoppingCart, Lock, Clock, Smartphone, TrendingUp, Users } from "lucide-react";
+import { Zap, ScanLine, ShoppingCart, Lock, Clock, DollarSign, TrendingUp, Users } from "lucide-react";
 
 const Features = () => {
   const features = [
@@ -28,9 +28,9 @@ const Features = () => {
       description: "Einfache Einbindung in bestehende Kassensysteme"
     },
     {
-      icon: Smartphone,
-      title: "Mobile-first Design",
-      description: "Optimiert für alle Endgeräte und Bildschirmgrößen"
+      icon: DollarSign,
+      title: "Kostenersparnis",
+      description: "Keine teuren Lösungen mehr nötig"
     },
     {
       icon: TrendingUp,
