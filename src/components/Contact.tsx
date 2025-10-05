@@ -1,11 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { useState, useEffect, useRef } from "react";
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
+import { useState } from "react";
+import worldMap from "@/assets/world-map.png";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -15,62 +14,6 @@ const Contact = () => {
     company: "",
     message: ""
   });
-  const [mapboxToken, setMapboxToken] = useState("");
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
-
-  useEffect(() => {
-    if (!mapContainer.current || !mapboxToken) return;
-
-    mapboxgl.accessToken = mapboxToken;
-    
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/dark-v11',
-      center: [9.2109, 49.1427], // Heilbronn, Germany
-      zoom: 4,
-      pitch: 0,
-    });
-
-    // Add marker for Heilbronn
-    const el = document.createElement('div');
-    el.className = 'custom-marker';
-    el.style.width = '2px';
-    el.style.height = '80px';
-    el.style.background = 'linear-gradient(to bottom, hsl(var(--primary)) 0%, transparent 100%)';
-    el.style.position = 'relative';
-
-    const popup = document.createElement('div');
-    popup.className = 'marker-popup';
-    popup.textContent = 'We are here';
-    popup.style.position = 'absolute';
-    popup.style.top = '-35px';
-    popup.style.left = '50%';
-    popup.style.transform = 'translateX(-50%)';
-    popup.style.background = 'hsl(var(--card))';
-    popup.style.padding = '8px 16px';
-    popup.style.borderRadius = '6px';
-    popup.style.whiteSpace = 'nowrap';
-    popup.style.color = 'hsl(var(--foreground))';
-    popup.style.fontSize = '14px';
-    popup.style.border = '1px solid hsl(var(--primary) / 0.3)';
-    el.appendChild(popup);
-
-    new mapboxgl.Marker({ element: el })
-      .setLngLat([9.2109, 49.1427])
-      .addTo(map.current);
-
-    map.current.addControl(
-      new mapboxgl.NavigationControl({
-        visualizePitch: false,
-      }),
-      'top-right'
-    );
-
-    return () => {
-      map.current?.remove();
-    };
-  }, [mapboxToken]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -94,7 +37,7 @@ const Contact = () => {
 
   return (
     <section className="py-20 bg-background relative overflow-hidden" id="kontakt">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8 md:px-12 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left side - Contact info and map */}
           <div className="space-y-8">
@@ -106,10 +49,10 @@ const Contact = () => {
             {/* Heading */}
             <div>
               <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-                Contact us
+                Kontaktieren Sie uns
               </h2>
               <p className="text-lg text-muted-foreground max-w-md">
-                We are always looking for ways to improve our products and services. Contact us and let us know how we can help you.
+                Wir sind immer auf der Suche nach Möglichkeiten, unsere Produkte und Dienstleistungen zu verbessern. Kontaktieren Sie uns und lassen Sie uns wissen, wie wir Ihnen helfen können.
               </p>
             </div>
 
@@ -129,26 +72,20 @@ const Contact = () => {
             </div>
 
             {/* Map */}
-            {!mapboxToken ? (
-              <div className="space-y-4">
-                <p className="text-sm text-muted-foreground">
-                  Um die Karte anzuzeigen, fügen Sie bitte Ihren Mapbox Public Token hinzu.
-                  Sie finden Ihren Token unter: <a href="https://mapbox.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">mapbox.com</a>
-                </p>
-                <Input
-                  type="text"
-                  placeholder="Mapbox Public Token eingeben"
-                  value={mapboxToken}
-                  onChange={(e) => setMapboxToken(e.target.value)}
-                  className="bg-card/50 border-primary/20"
-                />
-              </div>
-            ) : (
-              <div 
-                ref={mapContainer} 
-                className="w-full h-[400px] rounded-xl border border-primary/20 shadow-[0_0_30px_rgba(0,255,255,0.15)]"
+            <div className="relative w-full h-[400px] rounded-xl border border-primary/20 shadow-[0_0_30px_rgba(0,255,255,0.15)] overflow-hidden bg-card/30">
+              <img 
+                src={worldMap} 
+                alt="Weltkarte" 
+                className="w-full h-full object-cover opacity-60"
               />
-            )}
+              {/* Pin for Germany */}
+              <div className="absolute top-[35%] left-[52%] transform -translate-x-1/2 -translate-y-1/2">
+                <MapPin className="w-8 h-8 text-primary animate-pulse" fill="currentColor" />
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-card px-3 py-1 rounded-md border border-primary/30 whitespace-nowrap text-sm">
+                  Deutschland
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Right side - Contact form */}
@@ -156,7 +93,7 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                  Full name
+                  Vollständiger Name
                 </label>
                 <Input
                   id="name"
@@ -164,7 +101,7 @@ const Contact = () => {
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="Manu Arora"
+                  placeholder="Max Mustermann"
                   className="bg-background/50 border-border text-foreground placeholder:text-muted-foreground"
                   required
                 />
@@ -172,7 +109,7 @@ const Contact = () => {
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                  Email Address
+                  E-Mail-Adresse
                 </label>
                 <Input
                   id="email"
@@ -180,7 +117,7 @@ const Contact = () => {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="support@aceternity.com"
+                  placeholder="ihre.email@beispiel.de"
                   className="bg-background/50 border-border text-foreground placeholder:text-muted-foreground"
                   required
                 />
@@ -188,7 +125,7 @@ const Contact = () => {
 
               <div>
                 <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
-                  Company
+                  Unternehmen
                 </label>
                 <Input
                   id="company"
@@ -196,21 +133,21 @@ const Contact = () => {
                   type="text"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  placeholder="Aceternity Labs LLC"
+                  placeholder="Ihre Firma GmbH"
                   className="bg-background/50 border-border text-foreground placeholder:text-muted-foreground"
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Message
+                  Nachricht
                 </label>
                 <Textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Type your message here"
+                  placeholder="Ihre Nachricht hier eingeben"
                   rows={6}
                   className="bg-background/50 border-border text-foreground placeholder:text-muted-foreground resize-none"
                   required
@@ -221,7 +158,7 @@ const Contact = () => {
                 type="submit"
                 className="w-full bg-primary/10 text-foreground hover:bg-primary/20 border border-primary/30"
               >
-                Submit
+                Absenden
               </Button>
             </form>
           </div>
