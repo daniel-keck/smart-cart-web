@@ -72,11 +72,11 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-20 bg-background relative overflow-hidden" id="kontakt">
+    <section className="py-20 bg-background relative overflow-hidden min-h-screen" id="kontakt">
       <div className="container mx-auto px-8 md:px-12 lg:px-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
+        <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
           {/* Left side - Contact info */}
-          <div className="space-y-6 relative">
+          <div className="space-y-6 relative lg:sticky lg:top-24 lg:self-start">
             {/* Background accent */}
             <div className="absolute -top-20 -left-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
             
