@@ -58,7 +58,7 @@ const Hero = () => {
           </p>
 
           {/* SmartCart Demo Video */}
-          <div id="video" className="w-full max-w-5xl mt-96 relative">
+          <div id="video" className="w-full max-w-5xl !mt-[500px] relative">
             <div className="relative rounded-2xl overflow-hidden border border-primary/20" style={{ boxShadow: '0 0 60px rgba(0, 255, 255, 0.3)' }}>
               <video 
                 ref={videoRef}
