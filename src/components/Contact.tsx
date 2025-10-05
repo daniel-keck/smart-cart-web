@@ -76,7 +76,7 @@ const Contact = () => {
       <div className="container mx-auto px-8 md:px-12 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
           {/* Left side - Contact info */}
-          <div className="space-y-6 relative -mt-2">
+          <div className="space-y-6 relative -mt-12">
             {/* Background accent */}
             <div className="absolute -top-20 -left-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
             
