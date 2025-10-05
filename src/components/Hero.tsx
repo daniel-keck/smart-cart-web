@@ -33,26 +33,8 @@ const Hero = () => {
 
           {/* Subheading */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
-            Das universelle KI-Modul für Einkaufswagen – erfasst deinen Warenkorb automatisch, ohne zu scannen
+            Dein Warenkorb – automatisch erkannt, ganz ohne Scannen
           </p>
-
-          {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            <Button 
-              size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
-              style={{ boxShadow: '0 0 30px rgba(0, 255, 255, 0.4)' }}
-            >
-              Jetzt Kontakt aufnehmen
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-primary/50 text-primary hover:bg-primary/10"
-            >
-              Mehr erfahren
-            </Button>
-          </div>
 
           {/* Video placeholder - will be replaced with actual video */}
           <div id="video" className="w-full max-w-5xl mt-16 relative">
