@@ -28,9 +28,9 @@ const HowItWorks = () => {
   ];
 
   const hotspots = [
-    { x: "50%", y: "25%", step: 0 }, // Kamera Position (zentral oben)
+    { x: "45%", y: "25%", step: 0 }, // Kamera Position (zentral oben, leicht links)
     { x: "75%", y: "40%", step: 1 }, // KI Analysis (rechts beim Tisch)
-    { x: "75%", y: "70%", step: 2 }, // Shopping Bag (rechts unten)
+    { x: "65%", y: "70%", step: 2 }, // Shopping Bag (mehr nach links)
     { x: "25%", y: "70%", step: 3 }, // Checkout (links unten)
   ];
 
@@ -53,6 +53,7 @@ const HowItWorks = () => {
               src={smartcartScene} 
               alt="SmartCart 3D Scene" 
               className="w-full h-auto"
+              style={{ filter: 'sepia(100%) saturate(300%) brightness(70%) hue-rotate(180deg)' }}
             />
             
             {/* Hotspots */}
