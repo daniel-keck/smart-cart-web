@@ -74,19 +74,19 @@ const Contact = () => {
               </div>
               <div className="flex items-center gap-3 group">
                 <div className="w-2 h-2 rounded-full bg-primary"></div>
-                <a href="tel:+4970001234567" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="tel:+4070001234567" className="text-muted-foreground hover:text-primary transition-colors">
                   +49 (700) 123 4567
                 </a>
               </div>
-            </div>
-
-            {/* World Map */}
-            <div className="mt-12 pt-8 relative">
-              <img 
-                src={worldMap} 
-                alt="World Map" 
-                className="w-full max-w-2xl opacity-60"
-              />
+              
+              {/* World Map directly under phone */}
+              <div className="pt-8">
+                <img 
+                  src={worldMap} 
+                  alt="World Map" 
+                  className="w-full max-w-lg opacity-60"
+                />
+              </div>
             </div>
           </div>
 
