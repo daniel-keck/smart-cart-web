@@ -42,29 +42,29 @@ const Contact = () => {
       <div className="container mx-auto px-8 md:px-12 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
           {/* Left side - Contact info */}
-          <div className="space-y-8 relative">
+          <div className="space-y-6 relative text-center">
             {/* Background accent */}
-            <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
             
-            {/* Badge similar to FAQ style */}
-            <div className="inline-flex">
-              <div className="px-8 py-4 bg-primary/10 rounded-full border border-primary/30">
-                <span className="text-2xl font-semibold text-primary">Kontakt</span>
-              </div>
+            {/* Badge matching FAQ style */}
+            <div className="flex justify-center">
+              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                Kontakt
+              </span>
             </div>
 
-            {/* Heading */}
+            {/* Heading matching FAQ style */}
             <div className="relative">
-              <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-                Haben Sie<br />Fragen?
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                Haben Sie Fragen?
               </h2>
-              <p className="text-lg text-muted-foreground max-w-md leading-relaxed">
+              <p className="text-muted-foreground text-lg max-w-md mx-auto">
                 Ob geschäftliche Anfragen, Kooperationsvorschläge oder technische Fragen – wir freuen uns auf Ihre Nachricht und melden uns zeitnah bei Ihnen.
               </p>
             </div>
 
-            {/* Contact details with better layout */}
-            <div className="space-y-4 pt-4 relative">
+            {/* Contact details centered */}
+            <div className="space-y-4 pt-4 relative flex flex-col items-center">
               <div className="flex items-center gap-3 group">
                 <div className="w-2 h-2 rounded-full bg-primary"></div>
                 <a href="mailto:contact@smartcart.de" className="text-muted-foreground hover:text-primary transition-colors">
