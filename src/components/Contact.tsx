@@ -76,12 +76,12 @@ const Contact = () => {
       <div className="container mx-auto px-8 md:px-12 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
           {/* Left side - Contact info */}
-          <div className="space-y-6 relative">
+          <div className="space-y-6 relative -mt-2">
             {/* Background accent */}
             <div className="absolute -top-20 -left-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
             
             {/* Badge matching FAQ style */}
-            <div>
+            <div className="-mb-2">
               <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
                 Kontakt
               </span>
