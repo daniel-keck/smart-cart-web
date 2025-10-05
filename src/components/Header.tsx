@@ -57,6 +57,12 @@ const Header = () => {
           >
             FAQ
           </button>
+          <button 
+            onClick={() => scrollToSection("kontakt")}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Kontakt
+          </button>
           {/* <button 
             onClick={() => scrollToSection("ueber")}
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -67,13 +73,6 @@ const Header = () => {
 
         {/* Desktop Navigation - Right aligned button */}
         <div className="hidden md:flex items-center gap-4">
-          <Button 
-            onClick={() => scrollToSection("kontakt")}
-            variant="outline"
-            className="border-primary/50 text-primary hover:bg-primary hover:text-white transition-colors"
-          >
-            Kontakt
-          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -113,19 +112,18 @@ const Header = () => {
             >
               FAQ
             </button>
+            <button 
+              onClick={() => scrollToSection("kontakt")}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-2"
+            >
+              Kontakt
+            </button>
             {/* <button 
               onClick={() => scrollToSection("ueber")}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-2"
             >
               Über uns
             </button> */}
-            <Button 
-              onClick={() => scrollToSection("kontakt")}
-              variant="outline"
-              className="border-primary/50 text-primary hover:bg-primary hover:text-white transition-colors w-full mt-2"
-            >
-              Kontakt
-            </Button>
           </div>
         </div>
       )}
