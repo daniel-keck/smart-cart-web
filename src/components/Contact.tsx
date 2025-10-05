@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -14,11 +15,66 @@ const Contact = () => {
     company: "",
     message: ""
   });
+  const [mapboxToken, setMapboxToken] = useState("");
+  const mapContainer = useRef<HTMLDivElement>(null);
+  const map = useRef<mapboxgl.Map | null>(null);
+
+  useEffect(() => {
+    if (!mapContainer.current || !mapboxToken) return;
+
+    mapboxgl.accessToken = mapboxToken;
+    
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: 'mapbox://styles/mapbox/dark-v11',
+      center: [9.2109, 49.1427], // Heilbronn, Germany
+      zoom: 4,
+      pitch: 0,
+    });
+
+    // Add marker for Heilbronn
+    const el = document.createElement('div');
+    el.className = 'custom-marker';
+    el.style.width = '2px';
+    el.style.height = '80px';
+    el.style.background = 'linear-gradient(to bottom, hsl(var(--primary)) 0%, transparent 100%)';
+    el.style.position = 'relative';
+
+    const popup = document.createElement('div');
+    popup.className = 'marker-popup';
+    popup.textContent = 'We are here';
+    popup.style.position = 'absolute';
+    popup.style.top = '-35px';
+    popup.style.left = '50%';
+    popup.style.transform = 'translateX(-50%)';
+    popup.style.background = 'hsl(var(--card))';
+    popup.style.padding = '8px 16px';
+    popup.style.borderRadius = '6px';
+    popup.style.whiteSpace = 'nowrap';
+    popup.style.color = 'hsl(var(--foreground))';
+    popup.style.fontSize = '14px';
+    popup.style.border = '1px solid hsl(var(--primary) / 0.3)';
+    el.appendChild(popup);
+
+    new mapboxgl.Marker({ element: el })
+      .setLngLat([9.2109, 49.1427])
+      .addTo(map.current);
+
+    map.current.addControl(
+      new mapboxgl.NavigationControl({
+        visualizePitch: false,
+      }),
+      'top-right'
+    );
+
+    return () => {
+      map.current?.remove();
+    };
+  }, [mapboxToken]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Fehler",
@@ -33,129 +89,141 @@ const Contact = () => {
       description: "Wir melden uns so schnell wie möglich bei Ihnen.",
     });
 
-    // Reset form
     setFormData({ name: "", email: "", company: "", message: "" });
   };
 
   return (
-    <section className="py-24 relative overflow-hidden" id="kontakt">
-      {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background" />
-      <div className="absolute inset-0 bg-grid-pattern opacity-20" />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="text-primary animate-glow">Kontakt</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Bereit für die digitale Transformation? Wir freuen uns auf Ihre Nachricht.
-          </p>
-        </div>
-
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {/* Email Card */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-primary/20 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100" />
-              <div className="relative bg-card/80 backdrop-blur-sm border border-primary/30 rounded-xl p-6 hover:border-primary/60 transition-all duration-300">
-                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Mail className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">E-Mail</h3>
-                <p className="text-muted-foreground text-sm">kontakt@smartcart.de</p>
-              </div>
+    <section className="py-20 bg-background relative overflow-hidden" id="kontakt">
+      <div className="container mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Left side - Contact info and map */}
+          <div className="space-y-8">
+            {/* Icon */}
+            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center">
+              <Mail className="w-8 h-8 text-primary" />
             </div>
 
-            {/* Phone Card */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-primary/20 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100" />
-              <div className="relative bg-card/80 backdrop-blur-sm border border-primary/30 rounded-xl p-6 hover:border-primary/60 transition-all duration-300">
-                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Phone className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">Telefon</h3>
-                <p className="text-muted-foreground text-sm">+49 (0) 123 456 789</p>
-              </div>
+            {/* Heading */}
+            <div>
+              <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+                Contact us
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-md">
+                We are always looking for ways to improve our products and services. Contact us and let us know how we can help you.
+              </p>
             </div>
 
-            {/* Location Card */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-primary/20 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100" />
-              <div className="relative bg-card/80 backdrop-blur-sm border border-primary/30 rounded-xl p-6 hover:border-primary/60 transition-all duration-300">
-                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <MapPin className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">Standort</h3>
-                <p className="text-muted-foreground text-sm">Innovation Hub<br />Berlin, Deutschland</p>
-              </div>
+            {/* Contact details */}
+            <div className="flex flex-wrap gap-6 text-muted-foreground">
+              <a href="mailto:contact@smartcart.de" className="hover:text-primary transition-colors">
+                contact@smartcart.de
+              </a>
+              <span>•</span>
+              <a href="tel:+4970001234567" className="hover:text-primary transition-colors">
+                +49 (700) 123 4567
+              </a>
+              <span>•</span>
+              <a href="mailto:support@smartcart.de" className="hover:text-primary transition-colors">
+                support@smartcart.de
+              </a>
             </div>
+
+            {/* Map */}
+            {!mapboxToken ? (
+              <div className="space-y-4">
+                <p className="text-sm text-muted-foreground">
+                  Um die Karte anzuzeigen, fügen Sie bitte Ihren Mapbox Public Token hinzu.
+                  Sie finden Ihren Token unter: <a href="https://mapbox.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">mapbox.com</a>
+                </p>
+                <Input
+                  type="text"
+                  placeholder="Mapbox Public Token eingeben"
+                  value={mapboxToken}
+                  onChange={(e) => setMapboxToken(e.target.value)}
+                  className="bg-card/50 border-primary/20"
+                />
+              </div>
+            ) : (
+              <div 
+                ref={mapContainer} 
+                className="w-full h-[400px] rounded-xl border border-primary/20 shadow-[0_0_30px_rgba(0,255,255,0.15)]"
+              />
+            )}
           </div>
 
-          {/* Contact Form */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-primary/10 rounded-2xl blur-2xl" />
-            <div className="relative bg-card/90 backdrop-blur-sm border border-primary/40 rounded-2xl p-8 md:p-10 shadow-2xl">
-              <h3 className="text-2xl font-bold text-foreground mb-6">Nachricht senden</h3>
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid md:grid-cols-2 gap-5">
-                  <div className="space-y-2">
-                    <Label htmlFor="name" className="text-foreground font-medium">Name *</Label>
-                    <Input
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Max Mustermann"
-                      className="bg-background/60 border-border focus:border-primary/70 focus:ring-2 focus:ring-primary/20 transition-all h-11"
-                      required
-                    />
-                  </div>
+          {/* Right side - Contact form */}
+          <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 border border-primary/20">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                  Full name
+                </label>
+                <Input
+                  id="name"
+                  name="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder="Manu Arora"
+                  className="bg-background/50 border-border text-foreground placeholder:text-muted-foreground"
+                  required
+                />
+              </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-foreground font-medium">E-Mail *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="max@beispiel.de"
-                      className="bg-background/60 border-border focus:border-primary/70 focus:ring-2 focus:ring-primary/20 transition-all h-11"
-                      required
-                    />
-                  </div>
-                </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                  Email Address
+                </label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="support@aceternity.com"
+                  className="bg-background/50 border-border text-foreground placeholder:text-muted-foreground"
+                  required
+                />
+              </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="company" className="text-foreground font-medium">Unternehmen</Label>
-                  <Input
-                    id="company"
-                    value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    placeholder="Ihr Unternehmen (optional)"
-                    className="bg-background/60 border-border focus:border-primary/70 focus:ring-2 focus:ring-primary/20 transition-all h-11"
-                  />
-                </div>
+              <div>
+                <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
+                  Company
+                </label>
+                <Input
+                  id="company"
+                  name="company"
+                  type="text"
+                  value={formData.company}
+                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  placeholder="Aceternity Labs LLC"
+                  className="bg-background/50 border-border text-foreground placeholder:text-muted-foreground"
+                />
+              </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="message" className="text-foreground font-medium">Ihre Nachricht *</Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Beschreiben Sie Ihr Anliegen..."
-                    className="bg-background/60 border-border focus:border-primary/70 focus:ring-2 focus:ring-primary/20 transition-all min-h-[140px] resize-none"
-                    required
-                  />
-                </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                  Message
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  placeholder="Type your message here"
+                  rows={6}
+                  className="bg-background/50 border-border text-foreground placeholder:text-muted-foreground resize-none"
+                  required
+                />
+              </div>
 
-                <Button 
-                  type="submit" 
-                  className="w-full md:w-auto px-12 h-12 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold text-base shadow-[0_0_30px_rgba(0,255,255,0.4)] hover:shadow-[0_0_40px_rgba(0,255,255,0.6)] transition-all duration-300"
-                >
-                  Absenden
-                </Button>
-              </form>
-            </div>
+              <Button
+                type="submit"
+                className="w-full bg-primary/10 text-foreground hover:bg-primary/20 border border-primary/30"
+              >
+                Submit
+              </Button>
+            </form>
           </div>
         </div>
       </div>
