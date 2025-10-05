@@ -53,8 +53,9 @@ const HowItWorks = () => {
               src={smartcartScene} 
               alt="SmartCart 3D Scene" 
               className="w-full h-auto"
-              style={{ filter: 'brightness(1) saturate(1.15) hue-rotate(170deg) opacity(0.98)' }}
             />
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-background/30 pointer-events-none"></div>
             
             {/* Hotspots */}
             {hotspots.map((hotspot, index) => {
@@ -83,8 +84,8 @@ const HowItWorks = () => {
                   {/* Hover Card */}
                   <div className={`absolute z-30 transition-all duration-300 ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
                     style={{
-                      left: (hotspot.step === 0 || hotspot.step === 1) ? '120%' : (hotspot.step === 3 ? '120%' : 'auto'),
-                      right: (hotspot.step === 0 || hotspot.step === 1) ? 'auto' : (hotspot.step === 3 ? 'auto' : '120%'),
+                      left: (hotspot.step === 0 || hotspot.step === 3) ? '120%' : 'auto',
+                      right: (hotspot.step === 0 || hotspot.step === 3) ? 'auto' : '120%',
                       top: '50%',
                       transform: 'translateY(-50%)',
                       minWidth: '320px'
@@ -108,10 +109,10 @@ const HowItWorks = () => {
                       <div 
                         className="absolute top-1/2 -translate-y-1/2 w-0 h-0"
                         style={{
-                          [(hotspot.step === 0 || hotspot.step === 1) ? 'left' : (hotspot.step === 3 ? 'left' : 'right')]: '-8px',
+                          [(hotspot.step === 0 || hotspot.step === 3) ? 'left' : 'right']: '-8px',
                           borderTop: '8px solid transparent',
                           borderBottom: '8px solid transparent',
-                          [(hotspot.step === 0 || hotspot.step === 1) ? 'borderRight' : (hotspot.step === 3 ? 'borderRight' : 'borderLeft')]: '8px solid hsl(var(--primary) / 0.5)',
+                          [(hotspot.step === 0 || hotspot.step === 3) ? 'borderRight' : 'borderLeft']: '8px solid hsl(var(--primary) / 0.5)',
                         }}
                       ></div>
                     </div>
