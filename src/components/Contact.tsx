@@ -76,7 +76,7 @@ const Contact = () => {
       <div className="container mx-auto px-8 md:px-12 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
           {/* Left side - Contact info */}
-          <div className="space-y-6 relative lg:sticky lg:top-24 lg:self-start">
+          <div className="space-y-6 relative lg:sticky lg:top-24 lg:self-start pt-8">
             {/* Background accent */}
             <div className="absolute -top-20 -left-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
             
@@ -115,7 +115,7 @@ const Contact = () => {
           </div>
 
           {/* Right side - Contact form */}
-          <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 border border-primary/20">
+          <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 border border-primary/20 pt-8">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
