@@ -33,33 +33,20 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* Inner dot */}
       <div
         className="cursor-glow"
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
           transform: `translate(-50%, -50%) scale(${isPointer ? 1.5 : 1})`,
-          opacity: isPointer ? 0.8 : 1,
         }}
       />
-      {/* Middle glow */}
       <div
         className="cursor-glow-outer"
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
-          transform: `translate(-50%, -50%) scale(${isPointer ? 1.4 : 1})`,
-        }}
-      />
-      {/* Outer ring */}
-      <div
-        className="cursor-trail"
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-          transform: `translate(-50%, -50%) scale(${isPointer ? 0.8 : 1})`,
-          opacity: isPointer ? 0.5 : 0.3,
+          transform: `translate(-50%, -50%) scale(${isPointer ? 1.3 : 1})`,
         }}
       />
     </>
