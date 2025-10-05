@@ -1,8 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
-import References from "@/components/References";
-import WhySmartCart from "@/components/WhySmartCart";
 import HowItWorks from "@/components/HowItWorks";
 import FAQ from "@/components/FAQ";
 import About from "@/components/About";
@@ -16,12 +14,6 @@ const Index = () => {
       <div id="features">
         <Features />
       </div>
-      <div id="referenzen">
-        <References />
-      </div>
-      {/* <div id="warum">
-        <WhySmartCart />
-      </div> */}
       <div id="funktioniert">
         <HowItWorks />
       </div>
