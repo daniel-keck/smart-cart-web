@@ -49,11 +49,11 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-start">
           {/* Contact Info */}
-          <div className="space-y-8">
+          <div className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 h-full flex flex-col justify-between" style={{ boxShadow: '0 0 30px rgba(0, 255, 255, 0.1)' }}>
             <div>
-              <h3 className="text-2xl font-semibold text-primary mb-6">
+              <h3 className="text-2xl font-semibold text-primary mb-4">
                 Wir freuen uns auf Ihre Nachricht
               </h3>
               <p className="text-muted-foreground mb-8">
@@ -65,7 +65,7 @@ const Contact = () => {
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 border border-primary/20">
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <div>
@@ -75,7 +75,7 @@ const Contact = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 border border-primary/20">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <div>
@@ -85,7 +85,7 @@ const Contact = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 border border-primary/20">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
@@ -100,59 +100,59 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-card border border-border rounded-2xl p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="name" className="text-foreground">Name *</Label>
+          <div className="bg-card border border-primary/20 rounded-2xl p-8 h-full" style={{ boxShadow: '0 0 30px rgba(0, 255, 255, 0.15)' }}>
+            <form onSubmit={handleSubmit} className="space-y-4 h-full flex flex-col">
+              <div className="space-y-1.5">
+                <Label htmlFor="name" className="text-foreground text-sm">Name *</Label>
                 <Input
                   id="name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Ihr Name"
-                  className="bg-background border-border"
+                  className="bg-background/50 border-border focus:border-primary/50 transition-colors"
                   required
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-foreground">E-Mail *</Label>
+              <div className="space-y-1.5">
+                <Label htmlFor="email" className="text-foreground text-sm">E-Mail *</Label>
                 <Input
                   id="email"
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="ihre@email.de"
-                  className="bg-background border-border"
+                  className="bg-background/50 border-border focus:border-primary/50 transition-colors"
                   required
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="company" className="text-foreground">Unternehmen</Label>
+              <div className="space-y-1.5">
+                <Label htmlFor="company" className="text-foreground text-sm">Unternehmen</Label>
                 <Input
                   id="company"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                   placeholder="Ihr Unternehmen"
-                  className="bg-background border-border"
+                  className="bg-background/50 border-border focus:border-primary/50 transition-colors"
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="message" className="text-foreground">Nachricht *</Label>
+              <div className="space-y-1.5 flex-1 flex flex-col">
+                <Label htmlFor="message" className="text-foreground text-sm">Nachricht *</Label>
                 <Textarea
                   id="message"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Wie können wir Ihnen helfen?"
-                  className="bg-background border-border min-h-[150px]"
+                  className="bg-background/50 border-border focus:border-primary/50 transition-colors flex-1 min-h-[80px] resize-none"
                   required
                 />
               </div>
 
               <Button 
                 type="submit" 
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(0,255,255,0.5)]"
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_30px_rgba(0,255,255,0.5)]"
                 size="lg"
               >
                 Nachricht senden
