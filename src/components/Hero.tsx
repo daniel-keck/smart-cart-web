@@ -50,6 +50,9 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      
+      {/* Smooth gradient transition to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent via-primary/5 to-background pointer-events-none"></div>
     </section>
   );
 };
