@@ -17,7 +17,7 @@ const References = () => {
         <h2 className="text-4xl md:text-5xl font-bold text-center text-primary mb-4 animate-glow">
           Gefördert von
         </h2>
-        <p className="text-center text-muted-foreground mb-12">
+        <p className="text-center text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
           Institutionen, die an unsere Idee glauben.
         </p>
         
