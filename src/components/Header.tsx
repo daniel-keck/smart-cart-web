@@ -46,12 +46,6 @@ const Header = () => {
             Fortschritt
           </button>
           <button 
-            onClick={() => scrollToSection("referenzen")}
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Förderung
-          </button>
-          <button 
             onClick={() => scrollToSection("funktioniert")}
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
@@ -76,7 +70,7 @@ const Header = () => {
           <Button 
             onClick={() => scrollToSection("kontakt")}
             variant="outline"
-            className="border-primary/50 text-primary hover:bg-primary/10"
+            className="border-primary/50 text-primary hover:bg-primary hover:text-white transition-colors"
           >
             Kontakt
           </Button>
@@ -108,12 +102,6 @@ const Header = () => {
               Fortschritt
             </button>
             <button 
-              onClick={() => scrollToSection("referenzen")}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-2"
-            >
-              Förderung
-            </button>
-            <button 
               onClick={() => scrollToSection("funktioniert")}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-2"
             >
@@ -134,7 +122,7 @@ const Header = () => {
             <Button 
               onClick={() => scrollToSection("kontakt")}
               variant="outline"
-              className="border-primary/50 text-primary hover:bg-primary/10 w-full mt-2"
+              className="border-primary/50 text-primary hover:bg-primary hover:text-white transition-colors w-full mt-2"
             >
               Kontakt
             </Button>
