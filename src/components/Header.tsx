@@ -25,25 +25,37 @@ const Header = () => {
           onClick={() => scrollToSection("hero")}
         />
 
-        {/* Centered Quick Links */}
+        {/* Centered Navigation Links */}
         <div className="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
+          <button 
+            onClick={() => scrollToSection("video")}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Demo
+          </button>
+          <button 
+            onClick={() => scrollToSection("features")}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Fortschritt
+          </button>
           <button 
             onClick={() => scrollToSection("referenzen")}
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            Referenzen
-          </button>
-          <button 
-            onClick={() => scrollToSection("warum")}
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Warum SmartCart
+            Förderung
           </button>
           <button 
             onClick={() => scrollToSection("funktioniert")}
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            Wie es funktioniert
+            Funktion
+          </button>
+          <button 
+            onClick={() => scrollToSection("faq")}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            FAQ
           </button>
           <button 
             onClick={() => scrollToSection("ueber")}
@@ -53,19 +65,12 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Desktop Navigation - Right aligned buttons */}
+        {/* Desktop Navigation - Right aligned button */}
         <div className="hidden md:flex items-center gap-4">
-          <Button 
-            onClick={() => scrollToSection("video")}
-            variant="ghost"
-            className="text-foreground hover:text-primary"
-          >
-            Demo
-          </Button>
           <Button 
             onClick={() => scrollToSection("kontakt")}
             variant="outline"
-            className="border-border hover:bg-accent"
+            className="border-primary/50 text-primary hover:bg-primary/10"
           >
             Kontakt
           </Button>
@@ -84,17 +89,46 @@ const Header = () => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-card/95 backdrop-blur-md border-b border-border/50">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
-            <Button 
+            <button 
               onClick={() => scrollToSection("video")}
-              variant="ghost"
-              className="text-foreground hover:text-primary w-full justify-start"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-2"
             >
               Demo
-            </Button>
+            </button>
+            <button 
+              onClick={() => scrollToSection("features")}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-2"
+            >
+              Fortschritt
+            </button>
+            <button 
+              onClick={() => scrollToSection("referenzen")}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-2"
+            >
+              Förderung
+            </button>
+            <button 
+              onClick={() => scrollToSection("funktioniert")}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-2"
+            >
+              Funktion
+            </button>
+            <button 
+              onClick={() => scrollToSection("faq")}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-2"
+            >
+              FAQ
+            </button>
+            <button 
+              onClick={() => scrollToSection("ueber")}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left py-2"
+            >
+              Über uns
+            </button>
             <Button 
               onClick={() => scrollToSection("kontakt")}
               variant="outline"
-              className="border-border hover:bg-accent w-full"
+              className="border-primary/50 text-primary hover:bg-primary/10 w-full mt-2"
             >
               Kontakt
             </Button>
