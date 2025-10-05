@@ -12,7 +12,7 @@ const References = () => {
   ];
 
   return (
-    <section className="pt-20 pb-8 bg-background">
+    <section className="py-8 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-4 animate-glow">
           Mit freundlicher Unterstützung
