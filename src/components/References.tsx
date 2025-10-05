@@ -31,7 +31,9 @@ const References = () => {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-16 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  className={`w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${
+                    logo.alt === "Bundeswettbewerb KI" ? "h-32" : "h-16"
+                  }`}
                 />
               </div>
             ))}
