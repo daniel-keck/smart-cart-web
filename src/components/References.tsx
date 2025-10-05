@@ -1,12 +1,6 @@
-import dieterSchwarzLogo from "@/assets/dieter-schwarz-stiftung.png";
-import carlZeissLogo from "@/assets/carl-zeiss-stiftung.png";
-import hdmLogo from "@/assets/hdm-stuttgart.png";
-
 const References = () => {
-  const logos = [
-    { src: dieterSchwarzLogo, alt: "Dieter Schwarz Stiftung" },
-    { src: carlZeissLogo, alt: "Carl Zeiss Stiftung" },
-    { src: hdmLogo, alt: "HdM Stuttgart" },
+  const brands = [
+    "REWE", "EDEKA", "ALDI", "LIDL", "KAUFLAND", "PENNY", "NETTO"
   ];
 
   return (
@@ -20,17 +14,15 @@ const References = () => {
         </p>
         
         <div className="relative overflow-hidden">
-          <div className="flex animate-[scroll_30s_linear_infinite] hover:[animation-play-state:paused]">
-            {[...logos, ...logos].map((logo, index) => (
+          <div className="flex animate-[scroll_20s_linear_infinite] hover:[animation-play-state:paused]">
+            {[...brands, ...brands].map((brand, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 mx-12 flex items-center justify-center"
+                className="flex-shrink-0 mx-8 flex items-center justify-center"
               >
-                <img 
-                  src={logo.src} 
-                  alt={logo.alt}
-                  className="h-16 md:h-20 w-auto grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 object-contain"
-                />
+                <div className="text-2xl md:text-3xl font-bold text-muted-foreground/50 hover:text-primary transition-colors duration-300 whitespace-nowrap">
+                  {brand}
+                </div>
               </div>
             ))}
           </div>
