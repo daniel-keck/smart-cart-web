@@ -47,13 +47,13 @@ const Features = () => {
   return (
     <section className="pb-24 bg-background relative">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border/40">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border/20">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
               <div
                 key={index}
-                className="relative bg-background p-8 border border-border/40 group overflow-hidden transition-all duration-300"
+                className="relative bg-background p-8 border border-border/20 group overflow-hidden transition-all duration-300"
               >
                 {/* Gradient overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
