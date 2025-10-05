@@ -1,10 +1,8 @@
 import { Camera, Cpu, ShoppingBag, CreditCard } from "lucide-react";
 import { useState } from "react";
 import smartcartScene from "@/assets/smartcart-scene-new.png";
-import hdmLogo from "@/assets/hdm-stuttgart.png";
-import dieterSchwarzLogo from "@/assets/dieter-schwarz-stiftung.png";
-import carlZeissLogo from "@/assets/carl-zeiss-stiftung.png";
-import newPartnerLogo from "@/assets/new-partner-logo.png";
+import bundeswettbewerbLogo from "@/assets/bundeswettbewerb-ki.png";
+import smartcartLogoCyan from "@/assets/smartcart-logo-cyan.png";
 
 const HowItWorks = () => {
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
@@ -152,14 +150,10 @@ const HowItWorks = () => {
         <div className="relative overflow-hidden mt-20">
           <div className="flex animate-[scroll_25s_linear_infinite] hover:[animation-play-state:paused]">
             {[
-              { src: hdmLogo, alt: "HdM Stuttgart" },
-              { src: dieterSchwarzLogo, alt: "Dieter Schwarz Stiftung" },
-              { src: carlZeissLogo, alt: "Carl Zeiss Stiftung" },
-              { src: newPartnerLogo, alt: "Partner Logo" },
-              { src: hdmLogo, alt: "HdM Stuttgart" },
-              { src: dieterSchwarzLogo, alt: "Dieter Schwarz Stiftung" },
-              { src: carlZeissLogo, alt: "Carl Zeiss Stiftung" },
-              { src: newPartnerLogo, alt: "Partner Logo" }
+              { src: bundeswettbewerbLogo, alt: "Bundeswettbewerb KI" },
+              { src: smartcartLogoCyan, alt: "SmartCart" },
+              { src: bundeswettbewerbLogo, alt: "Bundeswettbewerb KI" },
+              { src: smartcartLogoCyan, alt: "SmartCart" }
             ].map((logo, index) => (
               <div
                 key={index}
